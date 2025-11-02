@@ -1,0 +1,2 @@
+# algoritimo-genetico
+# algoritimo-genetico
