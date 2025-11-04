@@ -4,11 +4,11 @@ import math
 import matplotlib.pyplot as plt
 from typing import List, Tuple, Optional
 
-from configuracao import GeneticAlgorithmConfig
+from configuracao import ConfiguracoesAlgoritimoGenetico
 
 
-class GeneticAlgorithmTSP:
-    def __init__(self, coordenadas, familias, visitas_familia, familia_no, config: GeneticAlgorithmConfig):
+class AlgoritimoGenetico:
+    def __init__(self, coordenadas, familias, visitas_familia, familia_no, config: ConfiguracoesAlgoritimoGenetico):
 
         self.coordenadas = coordenadas
         self.familias = familias

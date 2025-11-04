@@ -1,12 +1,12 @@
 import time, os, csv, statistics
 from datetime import datetime
-from instancia_tsp import TSPInstance
-from configuracao import GeneticAlgorithmConfig
-from ag_tsp import GeneticAlgorithmTSP
+from construtor_instancias import ConstrutorInstancias
+from configuracao import ConfiguracoesAlgoritimoGenetico
+from algoritimo_genetico import AlgoritimoGenetico
 import matplotlib.pyplot as plt
 
 
-class TSPExperiment:
+class ExecutarAlgoritimoGenetico:
     @staticmethod
     def resolver_instancia(arquivo: str, caminho_saida: str, pasta_individual_base: str, repeticoes: int = 1):
         global config
@@ -23,9 +23,9 @@ class TSPExperiment:
             print(f"\n➡️ Execução {r}/{repeticoes} da instância {nome_instancia}...")
 
             inicio = time.time()
-            instancia = TSPInstance(arquivo)
-            config = GeneticAlgorithmConfig(len(instancia.coordenadas))
-            ag = GeneticAlgorithmTSP(
+            instancia = ConstrutorInstancias(arquivo)
+            config = ConfiguracoesAlgoritimoGenetico(len(instancia.coordenadas))
+            ag = AlgoritimoGenetico(
                 instancia.coordenadas, instancia.familias, instancia.v, instancia.familia_no, config
             )
 
@@ -143,7 +143,7 @@ class TSPExperiment:
             ])
 
         for arquivo in arquivos:
-            TSPExperiment.resolver_instancia(arquivo, caminho_saida, pasta_individuais, repeticoes=5)
+            ExecutarAlgoritimoGenetico.resolver_instancia(arquivo, caminho_saida, pasta_individuais, repeticoes=5)
 
         print(f"\n📄 Resultados gerais: {caminho_saida}")
         print(f"📁 Resultados individuais: {pasta_individuais}")

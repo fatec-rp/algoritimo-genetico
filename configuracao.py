@@ -1,6 +1,6 @@
 from typing import Optional
 
-class GeneticAlgorithmConfig:
+class ConfiguracoesAlgoritimoGenetico:
 
     def __init__(self, num_cidades: int, seed: Optional[int] = None):
         if num_cidades <= 100:
